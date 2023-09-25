@@ -36,18 +36,17 @@ public class changeColor : MonoBehaviour
     }
     public void ScaleUp(GameObject test)
     {
-
         test.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
         SizeText.GetComponent<TextMeshPro>().text = "Actual Size :" + ObjectTracked.transform.localScale;
     }
     public void ScaleDown(GameObject test)
     {
-        if (test.transform.localScale.x-0.1f > 0.00f && test.transform.localScale.y-0.1f > 0.00f && test.transform.localScale.z-0.1f > 0.00f)
+        if (test.transform.localScale.x - 0.1f > 0.00f && test.transform.localScale.y - 0.1f > 0.00f && test.transform.localScale.z - 0.1f > 0.00f)
         {
             test.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
-            SizeText.GetComponent<TextMeshPro>().text = "Actual Size :" + test.transform.localScale;
-        }
 
+        }
+        SizeText.GetComponent<TextMeshPro>().text = "Actual Size :" + test.transform.localScale;
     }
     // Update is called once per frame
     void Update()

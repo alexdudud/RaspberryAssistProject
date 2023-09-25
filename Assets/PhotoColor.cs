@@ -9,9 +9,9 @@ using UnityEngine.Windows.WebCam;
 public class PhotoColor : MonoBehaviour
 {
     public GameObject PikedColorText;
-   
+
     private PhotoCapture photoCaptureObject = null;
-    private Dictionary<string,Color> colors = new Dictionary<string, Color>() {
+    private Dictionary<string, Color> colors = new Dictionary<string, Color>() {
         {"white",Color.white },
         {"black", Color.black},
         {"grey", new Color(192/255f,192/255f,192 / 255f,1f)},
@@ -32,11 +32,11 @@ public class PhotoColor : MonoBehaviour
     //orange (255,128,0)
     //red (255,0,0)
     //brown (128,0,0)
-    
+
     void Start()
     {
-        
-        
+
+
     }
     void OnMouseDown()
     {
@@ -98,22 +98,23 @@ public class PhotoColor : MonoBehaviour
 
             //targetTexture.Apply();
 
-            float red = middleColor.r ;
-            float green = middleColor.g ;
-            float blue = middleColor.b ;
+            float red = middleColor.r;
+            float green = middleColor.g;
+            float blue = middleColor.b;
             string definedColor = "none";
             float delta = 3;
-            Debug.Log(red +" , "+ green + " , " + blue);
+            Debug.Log(red + " , " + green + " , " + blue);
             PikedColorText.GetComponent<TextMeshPro>().text = "Picked Color : " + middleColor.ToString();
             foreach (var color in colors)
             {
                 float tmpDelta = Mathf.Abs(red - color.Value.r) + Mathf.Abs(green - color.Value.g) + Mathf.Abs(blue - color.Value.b);
-                Debug.Log(color.Key+" : "+ tmpDelta);
-                if (tmpDelta < delta) { 
+                Debug.Log(color.Key + " : " + tmpDelta);
+                if (tmpDelta < delta)
+                {
                     delta = tmpDelta;
                     definedColor = color.Key;
                 }
-                
+
             }
             Debug.Log(definedColor);
 
@@ -134,6 +135,6 @@ public class PhotoColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
